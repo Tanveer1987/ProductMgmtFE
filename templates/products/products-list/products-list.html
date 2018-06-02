@@ -1,0 +1,40 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading ">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Products</h3>
+            </div>
+            <div class="col-md-6 text-right" style="margin-top:25px;">
+                <button type="button" class="btn btn-primary btn-lg"  ng-click="onAdd()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+            <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in products">
+                            <td> {{p.code}} </td>
+                            <td> {{p.name}} </td>
+                            <td> {{p.price}} </td>
+                            <td>
+                                 <button type="button" class="btn btn-primary btn-xs" ng-click="onEdit(p)"><i class="fas fa-pencil-alt"></i></button>
+                                 <button type="button" class="btn btn-danger btn-xs" ng-click="onDelete(p)"><i class="fas fa-trash-alt" ></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+   
+</div>
+
