@@ -14,5 +14,11 @@ angular.module("App").config(function($routeProvider) {
     }).when('/products-add', {
         templateUrl : './templates/products/products-add/products-add.html',
         controller : 'ProductsAddController'
+    }).when('/category-list', {
+        templateUrl : './templates/category/category-list/category-list.html',
+        controller : 'CategoryListController'
+    }).when('/category-add', {
+        templateUrl : './templates/category/category-add/category-add.html',
+        controller : 'CategoryAddController'
     });
 });
