@@ -21,16 +21,16 @@
               <span class="icon-bar"></span> 
             </button>
 
-            <a class="navbar-brand" href="#!/home">Product Management System</a>
+            <a class="navbar-brand" ui-sref="home">Product Management System</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="#!/home"><span class="glyphicon glyphicon-home"></span > Home</a></li>
-            <li><a href="#!/about"><span class="glyphicon glyphicon-user"></span> About Us </a></li>
+            <li ui-sref-active="active-link"><a ui-sref="home"><span class="glyphicon glyphicon-home"></span > Home</a></li>
+            <li ui-sref-active="active-link"><a ui-sref="about"><span class="glyphicon glyphicon-user"></span> About Us </a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  href="javascript:void(0);">Items <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#!/category-list"> <i class="fa fa-table" aria-hidden="true"></i> Category </a></li>
-                <li><a href="#!/products-list"> <i class="fa fa-table" aria-hidden="true"></i> Products </a></li>
+                <li ui-sref-active="active-link"><a ui-sref="category-list"> <i class="fa fa-table" aria-hidden="true"></i> Category </a></li>
+                <li ui-sref-active="active-link"><a ui-sref="products-list"> <i class="fa fa-table" aria-hidden="true"></i> Products </a></li>
               </ul>
             </li>
           </ul>
@@ -42,11 +42,25 @@
 
 
 
+      
+      
+      
+      
+      
+      
       <div class="container">
-            <ng-view></ng-view>
+        <div ui-view></div>
       </div>
-    <script src="lib/js/angular.js"></script>
-    <script src="lib/js/angular-route.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+      <script src="lib/js/angular.js"></script>
+    <script src="lib/js/angular-ui-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

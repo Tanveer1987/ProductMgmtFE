@@ -14,6 +14,20 @@ angular.module("App").service("CategoryService", function($http, $q) {
     }
 
 
+    this.getCategory = function(id) {
+        return $q(function(resolve, reject) {
+            $http({
+                method : 'GET',
+                url :  "http://localhost:3000/api/categories/"+id
+            }).then(function(response) {
+                resolve(response.data);
+            }, function(error) {
+                reject(error);
+            });
+        });
+    }
+
+
     this.postCategory = function(category) {
         return $q(function(resolve, reject) {
             $http({

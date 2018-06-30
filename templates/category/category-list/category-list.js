@@ -1,4 +1,4 @@
-angular.module('App').controller('CategoryListController', ['$scope', '$rootScope', '$location', 'CategoryService', function($scope, $rootScope, $location, CategoryService) { 
+angular.module('App').controller('CategoryListController', ['$scope', '$rootScope', '$state', 'CategoryService', function($scope, $rootScope, $state, CategoryService) { 
     
    $scope.categories = [];
 
@@ -16,8 +16,7 @@ angular.module('App').controller('CategoryListController', ['$scope', '$rootScop
   
 
    $scope.onEdit = function(category) {
-       $rootScope.category = category;
-       $location.path('/category-add');
+       $state.go('category-add', { id : category._id});
    }
 
    $scope.onDelete = function(category) {
@@ -33,6 +32,6 @@ angular.module('App').controller('CategoryListController', ['$scope', '$rootScop
    }
 
    $scope.onAdd = function() {
-       $location.path('/category-add');
+       $state.go('category-add');
    }
 }]);

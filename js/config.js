@@ -1,24 +1,33 @@
 
 
-angular.module("App").config(function($routeProvider) {
+angular.module("App").config(function($stateProvider) {
     console.log('Config Function is running');
 
-    $routeProvider.when('/home', {
+    $stateProvider.state('home', {
+        url : '/home',
         templateUrl : './templates/home/home.html'
-    }).when('/about', {
+    }).state('about', {
+        url : '/about',
         templateUrl : './templates/about/about.html',
         controller : 'AboutController'
-    }).when('/products-list', {
+    }).state('products-list', {
+        url : 'products-list',
         templateUrl : './templates/products/products-list/products-list.html',
         controller : 'ProductsListController'
-    }).when('/products-add', {
+    }).state('products-add', {
+        url : 'products-add',
         templateUrl : './templates/products/products-add/products-add.html',
         controller : 'ProductsAddController'
-    }).when('/category-list', {
+    }).state('category-list', {
+        url : 'category-list',
         templateUrl : './templates/category/category-list/category-list.html',
         controller : 'CategoryListController'
-    }).when('/category-add', {
+    }).state('category-add', {
+        url : 'category-add/:id',
         templateUrl : './templates/category/category-add/category-add.html',
-        controller : 'CategoryAddController'
+        controller : 'CategoryAddController',
+        params: {
+            id : { squash: true, value: null }
+        }
     });
 });

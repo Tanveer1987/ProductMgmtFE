@@ -1,9 +1,9 @@
-angular.module('App').controller('CategoryAddController', ['$scope','$rootScope', 'CategoryService', '$location', function($scope, $rootScope, CategoryService, $location) { 
+angular.module('App').controller('CategoryAddController', ['$scope','$rootScope', 'CategoryService', '$state', '$stateParams', function($scope, $rootScope, CategoryService, $state, $stateParams) { 
     $scope.category = {};
 
     $scope.addCategory = function() {
         CategoryService.postCategory($scope.category).then(function(data) {
-           $location.path('/category-list');
+           $state.go('category-list');
        }, function(error) {
            console.log(error);
        });
@@ -12,19 +12,35 @@ angular.module('App').controller('CategoryAddController', ['$scope','$rootScope'
    
    $scope.updateCategory = function() {
        CategoryService.putCategory($scope.category).then(function(data) {
-           $location.path('/category-list');
+           $state.go('category-list');
        }, function(error) {
            console.log(error);
        });
    }
 
    $scope.onCancel = function() {
-       $location.path('/category-list');
+       $state.go('category-list');
    }
 
-   if($rootScope.category) {
-       $scope.category = $rootScope.category;
-       $rootScope.category = undefined;
+
+   var populatePage = function(id) {
+        CategoryService.getCategory(id).then(function(data){
+            console.log(data);
+            $scope.category = angular.copy(data);
+        }, function(error){
+            console.log(error);
+        });
+
+   }
+
+    
+   console.log($stateParams);
+
+   if($stateParams && $stateParams.id) {
+       console.log("You came to edit page")
+       populatePage($stateParams.id);
+   } else {
+       console.log("You came to add page")
    }
 
 }]);
